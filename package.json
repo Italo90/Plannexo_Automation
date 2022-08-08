@@ -1,0 +1,14 @@
+{
+  "name": "plannexo_automation",
+  "version": "1.0.0",
+  "description": "Projeto de automatização do produto plannexo",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "author": "QAs Bionexo",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^10.4.0"
+  }
+}
