@@ -1,13 +1,15 @@
 const user = require('../fixtures/user.json')
 
 describe('Realização de Login', () => {
-  cy.on('uncaught:exception', (err) => {
-    return true;
+  beforeEach(() => {
+    cy.on('uncaught:exception', (err) => {
+      return true;
+    })
   })
+
   context('Usuário Logando corretamente', function (){
 
     before(() => {
-
       cy.Url()
     })
 
@@ -25,12 +27,20 @@ describe('Realização de Login', () => {
 
     it('E aciona o botão "Entrar"',() =>{
       cy.BtEntrar().click()
+
     })
 
-    // it('E o usuário seleciona uma empresa pertencente ao seu cadastro', ()=> {
-    //   cy.SelectEmpresa()
+    it('E o usuário é encaminhado a pagina onde poderá escolher uma empresa', () => {
+      cy.SelectEmpresa()
+    })
+
+    // it('E aciona o botão o "Continuar" ',() =>{
+    //    cy.BtnContinuar().click()
     // })
 
+    // it('Então o usuário conseguira logar e visualizará o Dashboard com o nome da empresa escolhida', () =>{
+
+    // })
 
   })
 })

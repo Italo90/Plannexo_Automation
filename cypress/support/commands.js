@@ -11,7 +11,7 @@
 const user = require('../fixtures/user.json')
 
 Cypress.Commands.add("Url",() => {
-    cy.visit('https://client-api.qa.cloud.bionexo.com.br')
+    cy.visit('https://client-api.qa.cloud.bionexo.com.br/login')
   })
 
 Cypress.Commands.add("Email",() => {
@@ -30,9 +30,11 @@ Cypress.Commands.add("BtEntrar",() =>{
     cy.get('button[class="btn btn-primary"]').should('have.text', ' Entrar ')
 })
 
-// Cypress.Commands.add("SelectEmpresa",() =>{
-//     cy.get('select[class$="mt-4"]', { timeout: 40000 }).should('be.visible').select('99999999992 - Hospital Bionexo').should('have.value','999003')
-// })
+Cypress.Commands.add("SelectEmpresa",() =>{
+    cy.get('#multicompanies-select', { timeout: 30000 }).should('be.visible')
+})
+
+
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
