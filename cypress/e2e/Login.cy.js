@@ -1,16 +1,11 @@
 const user = require('../fixtures/user.json')
 
 describe('Realização de Login', () => {
-  beforeEach(() => {
-    cy.on('uncaught:exception', (err) => {
-      return true;
-    })
-  })
 
-  context('Usuário Logando corretamente', function (){
+  context('Usuário Logando corretamente a partir da escolha de uma company', function (){
 
     before(() => {
-      cy.Url()
+      cy.Url();
     })
 
     it('Dado que o Usuário ao prencher o campo E-mail corretamente', () => {
@@ -26,21 +21,23 @@ describe('Realização de Login', () => {
     })
 
     it('E aciona o botão "Entrar"',() =>{
-      cy.BtEntrar().click()
-
+      cy.BtEntrar()
+      .should('have.text', ' Entrar ')
+      .click()
     })
 
     it('E o usuário é encaminhado a pagina onde poderá escolher uma empresa', () => {
       cy.SelectEmpresa()
+      .select('99999999992 - Hospital Bionexo', { timeout: 20000 }).should('have.value','999003')
+      cy.BtContinuar()
+       .should('have.text', ' Continuar ')
+       .click()
     })
 
-    // it('E aciona o botão o "Continuar" ',() =>{
-    //    cy.BtnContinuar().click()
-    // })
-
-    // it('Então o usuário conseguira logar e visualizará o Dashboard com o nome da empresa escolhida', () =>{
-
-    // })
+    it('Então o usuário conseguira logar e visualizará o Dashboard com o nome da empresa escolhida', () =>{
+      cy.get('div h4', { timeout: 20000 } ).should('be.visible')
+      cy.get('#dropdownMenuLink').should('be.visible')
+    })
 
   })
 })

@@ -11,7 +11,8 @@
 const user = require('../fixtures/user.json')
 
 Cypress.Commands.add("Url",() => {
-    cy.visit('https://client-api.qa.cloud.bionexo.com.br/login')
+    cy.visit('/', {failOnStatusCode: false})
+    //cy.get('#onetrust-accept-btn-handler', { timeout: 30000 }).should('have.text','Aceitar todos os cookies').click()
   })
 
 Cypress.Commands.add("Email",() => {
@@ -19,7 +20,7 @@ Cypress.Commands.add("Email",() => {
 })
 
 Cypress.Commands.add("Senha",() => {
-    cy.get('#password')
+    cy.get('#password', { timeout: 20000 })
 })
 
 Cypress.Commands.add("BtProximo",() =>{
@@ -27,11 +28,17 @@ Cypress.Commands.add("BtProximo",() =>{
 })
 
 Cypress.Commands.add("BtEntrar",() =>{
-    cy.get('button[class="btn btn-primary"]').should('have.text', ' Entrar ')
+    cy.get('button[class="btn btn-primary"]')
+})
+
+Cypress.Commands.add("BtContinuar",() =>{
+    cy.get('button[id="multicompanies-button-continue"]')
 })
 
 Cypress.Commands.add("SelectEmpresa",() =>{
-    cy.get('#multicompanies-select', { timeout: 30000 }).should('be.visible')
+    cy.get('#multicompanies-select', { timeout: 30000 })
+    .should('be.visible')
+
 })
 
 

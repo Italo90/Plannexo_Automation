@@ -2,6 +2,6 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    // "defaultCommandTimeout": 150000,
+    baseUrl: 'https://client-api.qa.cloud.bionexo.com.br/login'
   },
 });
