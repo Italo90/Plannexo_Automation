@@ -1,4 +1,7 @@
 {
     "email": "gsousa@bionexo.com",
-    "senha": "Bio@1234"
+    "senha": "Bio@1234",
+    "emailsmulti": "validacao@bionexo.com",
+    "emailinvalido": "grazi@bionexo.com",
+    "senhaInvalida": "grazi@bionexo.com"
 }

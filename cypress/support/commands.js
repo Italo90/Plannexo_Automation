@@ -41,6 +41,13 @@ Cypress.Commands.add("SelectEmpresa",() =>{
 
 })
 
+Cypress.Commands.add("ValidarMsgInvalido", () => {
+
+    cy.get('span[class="is-invalid pln-required-permission"]').should('be.visible')
+})
+
+
+
 
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
