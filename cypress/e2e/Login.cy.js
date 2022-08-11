@@ -90,7 +90,8 @@ describe('Realização de Login', () => {
       cy.ValidarMsgInvalido().should('have.text', 'Não foi possível encontrar este e-mail')
     })
   })
-  context('Usuário Logando com email invalido', function () {
+
+  context('Usuário Logando com senha invalida', function () {
 
     before(() => {
       cy.Url();

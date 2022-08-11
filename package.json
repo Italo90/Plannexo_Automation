@@ -4,7 +4,8 @@
   "description": "Projeto de automatização do produto plannexo",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress open"
+    "test": "npx cypress open",
+    "headless": "npx cypress run"
   },
   "author": "QAs Bionexo",
   "license": "MIT",
